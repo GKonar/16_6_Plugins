@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //webpack.config.js
 module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środowisko, które przekażemy w CLI !!!!!
@@ -9,6 +10,11 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
             path: path.resolve(__dirname, 'build'),
             filename: 'app.bundle.js'
         },
+        plugins: [new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        })],
          module: {
             rules: [
                 {
