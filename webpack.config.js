@@ -42,6 +42,15 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
                             }
                         }
                     ]
+                },
+                {
+                    test: /\.(html)$/,
+                    use: {
+                    loader: 'html-loader',
+                    options: {
+                    attrs: [':data-src']
+                        }
+                    }
                 }
             ]
         },
