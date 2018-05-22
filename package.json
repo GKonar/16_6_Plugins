@@ -15,6 +15,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "optimize-js-plugin": "0.0.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "style-loader": "^0.21.0"

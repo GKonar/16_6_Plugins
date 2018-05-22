@@ -1,8 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
+const plugins = [new HtmlWebpackPlugin({
+    template: 'src/index.html',
+    filename: 'index.html',
+    inject: 'body'
+})];
+
+
 
 //webpack.config.js
 module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środowisko, które przekażemy w CLI !!!!!
+    if (env === 'production') {
+        plugins.push(
+            new OptimizeJsPlugin({
+                sourceMap: false
+            })
+        )
+    }
     return {
         mode: env || 'production', // dzięki zastosowaniu opcji env mamy większe możliwości modyfikacji 
         entry: './src/index.js', //wskazuje plik od którego zaczynamy proces kompilacji
@@ -10,11 +25,6 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
             path: path.resolve(__dirname, 'build'),
             filename: 'app.bundle.js'
         },
-        plugins: [new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            filename: 'index.html',
-            inject: 'body'
-        })],
          module: {
             rules: [
                 {
@@ -34,6 +44,7 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
                     ]
                 }
             ]
-        }
+        },
+        plugins
     }
 };
