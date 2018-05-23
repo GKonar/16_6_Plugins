@@ -19,7 +19,6 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
         )
     }
     return {
-        mode: env || 'production', // dzięki zastosowaniu opcji env mamy większe możliwości modyfikacji 
         entry: './src/index.js', //wskazuje plik od którego zaczynamy proces kompilacji
         output: { // wskazuje na ścieżkę i nazwę pliku wejściowego
             path: path.resolve(__dirname, 'build'),
