@@ -32,7 +32,8 @@ class App extends React.Component {
 	}
 
 	removeTodo(id) {
-		const remainder = this.state.data.filter(todo => todo.id !== id); 
+		const remainder = this.state.data.filter(todo => todo.id !== id);
+		//The filter() method creates an array filled with all array elements that pass a test (provided as a function). 
 		this.setState({data: remainder});
 
 	}
